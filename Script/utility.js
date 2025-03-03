@@ -29,7 +29,6 @@ function getCurrentAlphabetById() {
   const getAlphabet = document.getElementById('alphabetScreen');
   const alphabet = getAlphabet.innerText;
   const alphabetLowerCase = alphabet.toLowerCase();
-  console.log(alphabetLowerCase);
   return alphabetLowerCase;
 
 }
@@ -37,6 +36,12 @@ function getCurrentAlphabetById() {
 function setHighlightColorById(alphabetKeyId) {
   const getKeyId = document.getElementById(alphabetKeyId);
   getKeyId.classList.add('bg-[#FFA500]');
-
   
 };
+function removeHighlightColorById(alphabetKeyId) {
+  const getKeyId = document.getElementById(alphabetKeyId);
+  getKeyId.classList.remove('bg-[#FFA500]');
+  
+};
+
+
