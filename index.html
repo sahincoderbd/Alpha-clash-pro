@@ -88,7 +88,7 @@
         <button class="btn bg-[#894189] rounded-full text-white border-none text-lg px-6 py-4">
           Life
           <img src="images/Group 23.svg" alt="">
-          <span id="life">5</span>
+          <span id="currentLife">5</span>
         </button>
         <p class="text-center">If you press the wrong key, you lose your life. If you press the correct key ,<br> your
           score will be
@@ -97,17 +97,18 @@
         <button class="btn bg-[#360490] rounded-full text-white border-none text-lg px-6 py-4">
           Score
           <img src="images/monetization_on.svg" alt="">
-          <span id="score">0</span>
+          <span id="currentScore">0</span>
         </button>
       </div>
 
     </section>
     <!-- playground end -->
-    <section class="score flex flex-col justify-center items-center min-h-screen hidden">
+    <section id="finalScoreScreen" class="score flex flex-col justify-center items-center min-h-screen hidden">
       <div
         class="flex flex-col justify-center items-center bg-[#FFFFFF33] w-[500px] h-[350px] text-center p-10 rounded-lg space-y-4 border-[2px] border-[#ffffff33]">
-        <h1><span class="text-7xl font-semibold ">Score: <span class="text-white text-7xl ">14</span></span></h1>
-        <button class="btn bg-white text-black text-lg px-6 py-7 ">Play Again</button>
+        <h1><span class="text-7xl font-semibold ">Score: <span id="finalScore"
+              class="text-white text-7xl ">14</span></span></h1>
+        <button onclick="playAgain()" class="btn bg-white text-black text-lg px-6 py-7 ">Play Again</button>
         <p class="text-lg text-white text-center">Practice will make you Pro</p>
       </div>
     </section>

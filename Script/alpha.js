@@ -1,31 +1,43 @@
 function playBtn() {
-  showAndHideScreen();
+  hideSectionElementById('home');
+  showSectionElementById('playStart');
   showRandomAlpha();
   setHighlightColorById(getCurrentAlphabetById());
 
 };
 
+
+// Final Score Screen function
+
+
+function playAgain() {
+  showSectionElementById('playStart');
+  hideSectionElementById('finalScoreScreen');
+
+} 
 // Game function
-
-
 function increaseScoreNumber() {
-  const getScoreElement = document.getElementById('score');
-  const scoreString = getScoreElement.innerText;
-  let score = parseInt(scoreString);
-  score = score+1;
- getScoreElement.innerText = score;
-
+  let getScore = getTextFromTextElementById('currentScore');
+  // console.log(getScore);
+ const UpdatedScore = getScore+1;
+ setInnerTextById('currentScore', UpdatedScore);
+  return UpdatedScore;
 }
 function reduceLifeForWrongPress() {
-  const getLifeScoreElement = document.getElementById('life');
-  const lifeInnerText = getLifeScoreElement.innerText;
-  let lifeScore = parseInt(lifeInnerText);
-  if (lifeScore > 0) {
-    lifeScore = lifeScore - 1;
-    getLifeScoreElement.innerText = lifeScore;
+  const getLifeScore = getTextFromTextElementById('currentLife');
+  console.log(getLifeScore);
+  const updatedLifeScore = getLifeScore - 1;
+  setInnerTextById('currentLife', updatedLifeScore);
+  if (updatedLifeScore > 0) {
+
   }
-  if (lifeScore <= 0) {
-    
+  if (updatedLifeScore === 0 || updatedLifeScore<0) {
+    hideSectionElementById('playStart');
+    showSectionElementById('finalScoreScreen');
+    setInnerTextById('currentLife', 5);
+    setInnerTextById('finalScore', getTextFromTextElementById('currentScore'));
+    setInnerTextById('currentScore', 0);
+
   }
   
 }
@@ -44,6 +56,9 @@ function getKeyPressHandle(event) {
   }
   else {
     reduceLifeForWrongPress();
+    showRandomAlpha();
+    removeHighlightColorById(currentAlphabet);
+    setHighlightColorById(getCurrentAlphabetById());
     console.log('you missed. you lost a life');
 
   }

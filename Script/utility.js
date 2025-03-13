@@ -1,12 +1,14 @@
 // showAndHideScreen()
 
-function showAndHideScreen() {
-  const playGroundOn = document.getElementById('playStart');
-  const homeSection = document.getElementById('home');
-  homeSection.classList.add('hidden');
-  playGroundOn.classList.remove('hidden');
+function showSectionElementById(elementId) {
+  const getElement = document.getElementById(elementId);
+  getElement.classList.remove('hidden');
 }
 
+function hideSectionElementById(elementId) {
+  const getElement = document.getElementById(elementId);
+  getElement.classList.add('hidden');
+}
 
 // get random alphabet from alphabet string;
 function getRandomAlpha() {
@@ -32,12 +34,13 @@ function getCurrentAlphabetById() {
   return alphabetLowerCase;
 
 }
-
+// Highlight the on-screen alphabet on the keyboard 
 function setHighlightColorById(alphabetKeyId) {
   const getKeyId = document.getElementById(alphabetKeyId);
   getKeyId.classList.add('bg-[#FFA500]');
   
 };
+
 function removeHighlightColorById(alphabetKeyId) {
   const getKeyId = document.getElementById(alphabetKeyId);
   getKeyId.classList.remove('bg-[#FFA500]');
@@ -45,3 +48,16 @@ function removeHighlightColorById(alphabetKeyId) {
 };
 
 
+//get text from text element
+function getTextFromTextElementById(elementId) {
+  const getElement = document. getElementById(elementId);
+  const innerText = getElement.innerText;
+  const innerTextValue = parseInt(innerText);
+  return innerTextValue;
+}
+// set inner text by Id
+function setInnerTextById(elementId,UpdatedText) {
+  const getElement = document.getElementById(elementId);
+  const parseIntOfElement = parseInt(UpdatedText);
+  getElement.innerText = parseIntOfElement;
+}
