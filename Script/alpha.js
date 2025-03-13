@@ -40,6 +40,12 @@ function getKeyPressHandle(event) {
   if (playerKeyPressvalue === 'Escape') {
     gameOver();
   }
+  if (playerKeyPressvalue === 'Space') {
+    showSectionElementById('playStart');
+    hideSectionElementById('finalScoreScreen');
+     setInnerTextById('currentLife', 5);
+    setInnerTextById('currentScore', 0);
+  }
   if(playerKeyPressvalue!==currentAlphabet) {
     reduceLifeForWrongPress();
     showRandomAlpha();
