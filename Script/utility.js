@@ -70,4 +70,15 @@ function gameOver(){
       setInnerTextById('finalScore', getTextFromTextElementById('currentScore'));
       setInnerTextById('currentScore', 0);
 
-    }
+}
+    
+function reduceLifeForWrongPress() {
+  const getLifeScore = getTextFromTextElementById('currentLife');
+  console.log(getLifeScore);
+  const updatedLifeScore = getLifeScore - 1;
+  setInnerTextById('currentLife', updatedLifeScore);
+
+  if (updatedLifeScore === 0 || updatedLifeScore < 0) {
+    gameOver();
+  }
+}

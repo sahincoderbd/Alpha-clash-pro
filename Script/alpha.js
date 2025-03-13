@@ -23,18 +23,7 @@ function increaseScoreNumber() {
  setInnerTextById('currentScore', UpdatedScore);
   return UpdatedScore;
 }
-function reduceLifeForWrongPress() {
-  const getLifeScore = getTextFromTextElementById('currentLife');
-  console.log(getLifeScore);
-  const updatedLifeScore = getLifeScore - 1;
-  setInnerTextById('currentLife', updatedLifeScore);
-  if (updatedLifeScore > 0) {
 
-  }
-  if (updatedLifeScore === 0 || updatedLifeScore < 0) {
-    gameOver();
-  }
-}
 
 function getKeyPressHandle(event) {
   const playerKeyPressvalue = event.key;
@@ -46,13 +35,12 @@ function getKeyPressHandle(event) {
     increaseScoreNumber();
     console.log('current alpha is ', currentAlphabet);
     removeHighlightColorById(currentAlphabet);
-    
-
+    setHighlightColorById(getCurrentAlphabetById());
   }
   if (playerKeyPressvalue === 'Escape') {
     gameOver();
   }
-  else {
+  if(playerKeyPressvalue!==currentAlphabet) {
     reduceLifeForWrongPress();
     showRandomAlpha();
     removeHighlightColorById(currentAlphabet);
