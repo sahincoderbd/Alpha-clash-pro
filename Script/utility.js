@@ -61,3 +61,13 @@ function setInnerTextById(elementId,UpdatedText) {
   const parseIntOfElement = parseInt(UpdatedText);
   getElement.innerText = parseIntOfElement;
 }
+
+// game over function
+function gameOver(){
+      hideSectionElementById('playStart');
+      showSectionElementById('finalScoreScreen');
+      setInnerTextById('currentLife', 5);
+      setInnerTextById('finalScore', getTextFromTextElementById('currentScore'));
+      setInnerTextById('currentScore', 0);
+
+    }

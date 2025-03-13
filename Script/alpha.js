@@ -31,15 +31,9 @@ function reduceLifeForWrongPress() {
   if (updatedLifeScore > 0) {
 
   }
-  if (updatedLifeScore === 0 || updatedLifeScore<0) {
-    hideSectionElementById('playStart');
-    showSectionElementById('finalScoreScreen');
-    setInnerTextById('currentLife', 5);
-    setInnerTextById('finalScore', getTextFromTextElementById('currentScore'));
-    setInnerTextById('currentScore', 0);
-
+  if (updatedLifeScore === 0 || updatedLifeScore < 0) {
+    gameOver();
   }
-  
 }
 
 function getKeyPressHandle(event) {
@@ -50,9 +44,13 @@ function getKeyPressHandle(event) {
     console.log('wow! you got a point');
     showRandomAlpha();
     increaseScoreNumber();
+    console.log('current alpha is ', currentAlphabet);
     removeHighlightColorById(currentAlphabet);
-    setHighlightColorById(getCurrentAlphabetById());
+    
 
+  }
+  if (playerKeyPressvalue === 'Escape') {
+    gameOver();
   }
   else {
     reduceLifeForWrongPress();
