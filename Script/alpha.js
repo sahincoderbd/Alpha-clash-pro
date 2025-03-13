@@ -40,7 +40,7 @@ console.log('user pressed', playerKeyPressvalue);
   if (playerKeyPressvalue === 'Escape') {
     gameOver();
   }
-  if (playerKeyPressvalue === ' ') {
+  if (playerKeyPressvalue === ' '|| playerKeyPressvalue==='Enter') {
     showSectionElementById('playStart');
     hideSectionElementById('finalScoreScreen');
      setInnerTextById('currentLife', 5);
