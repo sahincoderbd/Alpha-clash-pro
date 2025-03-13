@@ -28,7 +28,7 @@ function increaseScoreNumber() {
 function getKeyPressHandle(event) {
   const playerKeyPressvalue = event.key;
   const currentAlphabet = getCurrentAlphabetById();
-
+console.log('user pressed', playerKeyPressvalue);
   if (playerKeyPressvalue === currentAlphabet) {
     console.log('wow! you got a point');
     showRandomAlpha();
@@ -40,7 +40,7 @@ function getKeyPressHandle(event) {
   if (playerKeyPressvalue === 'Escape') {
     gameOver();
   }
-  if (playerKeyPressvalue === 'Space') {
+  if (playerKeyPressvalue === ' ') {
     showSectionElementById('playStart');
     hideSectionElementById('finalScoreScreen');
      setInnerTextById('currentLife', 5);
